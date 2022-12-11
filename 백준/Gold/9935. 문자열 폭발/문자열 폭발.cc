@@ -10,14 +10,9 @@ int main() {
             string temp;
             temp += str[i];
             while(1) {
-                if(temp.size()==boom.size()) {
+                if(temp.size()==boom.size() || st.empty()) {
                     reverse(temp.begin(), temp.end());
                     if(temp!=boom) for(auto x: temp) st.push(x);
-                    break;
-                } 
-                if(st.empty()) {
-                    reverse(temp.begin(), temp.end());
-                    for(auto x: temp) st.push(x);
                     break;
                 }
                 temp += st.top();
@@ -32,7 +27,6 @@ int main() {
         st.pop();
     }
     reverse(ans.begin(), ans.end());
-    if(ans.size()==0) ans = "FRULA";
-    cout << ans << '\n';
+    ans.size()==0 ? cout << "FRULA" << '\n' : cout << ans << '\n';
     return 0;
 }
