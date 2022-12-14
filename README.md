@@ -64,4 +64,9 @@
     5. 위 과정에서 3번~4번을 반복합니다.
   - [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Gold/1753.%E2%80%85%EC%B5%9C%EB%8B%A8%EA%B2%BD%EB%A1%9C)
   
-  
+- 트리
+  - 루트에서 bfs를 돌릴 경우 depth 순서대로 방문을 한다.(= 레벨 순회)
+  - 이를 이용해, bfs를 돌며 각 노드의 부모배열과 depth 배열을 채울 수 있다.
+  - 트리의 부모 배열 채우기 [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Silver/11725.%E2%80%85%ED%8A%B8%EB%A6%AC%EC%9D%98%E2%80%85%EB%B6%80%EB%AA%A8%E2%80%85%EC%B0%BE%EA%B8%B0)
+  - 이진 트리의 경우 입력을 받을 때 lc[x](= x 노드의 왼쪽 자식 노드 값), rc[x] 배열을 채우면 클래스를 정의할 필요 없이 진행할 수 있다.
+  - 이진 트리의 전위, 중위, 후위 순회 [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Silver/1991.%E2%80%85%ED%8A%B8%EB%A6%AC%E2%80%85%EC%88%9C%ED%9A%8C)
