@@ -70,3 +70,15 @@
   - 트리의 부모 배열 채우기 [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Silver/11725.%E2%80%85%ED%8A%B8%EB%A6%AC%EC%9D%98%E2%80%85%EB%B6%80%EB%AA%A8%E2%80%85%EC%B0%BE%EA%B8%B0)
   - 이진 트리의 경우 입력을 받을 때 lc[x](= x 노드의 왼쪽 자식 노드 값), rc[x] 배열을 채우면 클래스를 정의할 필요 없이 진행할 수 있다.
   - 이진 트리의 전위, 중위, 후위 순회 [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Silver/1991.%E2%80%85%ED%8A%B8%EB%A6%AC%E2%80%85%EC%88%9C%ED%9A%8C)
+
+- 위상 정렬
+  - 사이클이 없는 방향 그래프에서 선후 관계의 모순 없이 나열하는 것
+  - 사이클이 없는 무방향(=양방향) 그래프를 트리라고 하고, 사이클이 없는 방향 그래프는 DAG라 함
+  - 때문에 위상 정렬을 돌려 결과 배열을 나열하면 전체 정점 개수와 크기 비교를 통해 사이클이 있는지 없는지도 판단할 수 있음.
+  - 구현 방법
+    1. 입력을 받을때 배열 deg[x](정점 x의 indegree값)을 갱신, adj[x] 갱신
+    2. deg[x]==0 인 x 값들 큐에 넣음
+    3. 큐에서 정점 꺼내면서 result 배열에 해당 정점 넣어주고, 해당 정점과 연결된 정점들의 deg[nx] 값 1씩 빼줌
+    4. 1을 뺄때 값이 0이 되는 정점은 큐에 넣어줌
+    5. c~d 반복
+  - [모범 에제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Gold/2252.%E2%80%85%EC%A4%84%E2%80%85%EC%84%B8%EC%9A%B0%EA%B8%B0)
