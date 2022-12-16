@@ -2,7 +2,7 @@
 using namespace std;
 int n, m;
 int cost[101][101];
-int nxt[101][101]; //  i에서 j까지 최단거리로 가는데 i에서 이동하는 다음 정점
+int nxt[101][101]; //  i에서 j까지 최단거리로 가는데 i에서 이동하는 그 다음 정점
 int main() {
     cin.tie(0)->sync_with_stdio(0);
     cin >> n >> m;
