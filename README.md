@@ -80,5 +80,16 @@
     2. deg[x]==0 인 x 값들 큐에 넣음
     3. 큐에서 정점 꺼내면서 result 배열에 해당 정점 넣어주고, 해당 정점과 연결된 정점들의 deg[nx] 값 1씩 빼줌
     4. 1을 뺄때 값이 0이 되는 정점은 큐에 넣어줌
-    5. c~d 반복
-  - [모범 에제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Gold/2252.%E2%80%85%EC%A4%84%E2%80%85%EC%84%B8%EC%9A%B0%EA%B8%B0)
+    5. c~d번 반복
+  - [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Gold/2252.%E2%80%85%EC%A4%84%E2%80%85%EC%84%B8%EC%9A%B0%EA%B8%B0)
+  
+- 플로이드 알고리즘
+  - 모든 쌍의 최단 거리를 구하는 알고리즘
+  - 구현 방법
+    1. cost[i][j] = i 정점에서 j 정점까지 가는데 드는 최소 비용. 을 나타내는 이 테이블을 갱신해줄거야
+    2. 처음 테이블의 모든 요소를 1e9로 갱신. 두 요소를 더하는 상황도 있기에 2e9로 하지 않음.
+    3. 바로 인접한 정점까지의 비용만 입력을 받으면서 갱신하고, 자기 자신까지 가는데는 0으로 갱신
+    4. 정점을 하나씩 정해주면서, 해당 정점을 거쳐가는 경우의 비용과 거쳐가지 않는 기존의 비용과 대소 비교를 통해 작은쪽으로 갱신
+        - a = min(a, b); 는 매번 대입을 하기 때문에, if(a > b) a = b; 라고 하는 편이 성능면에서 이득
+    5. d번 에서 결국 3중 for문을 돌게 되는데, 이때 거쳐갈 정점을 맨 바깥으로 빼놔야돼.
+  - [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Gold/11404.%E2%80%85%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%93%9C)
