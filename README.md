@@ -109,8 +109,8 @@
 
 - KMP 알고리즘 (코테에 나올 확률 매우 적음)
      - 이해 못함
-     - 단순히 부분 문자열이 있냐 없냐만 확인할거라면 strstr 함수 하용해. 시간복잡도 O(N+M)
-     - [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Bronze/16916.%E2%80%85%EB%B6%80%EB%B6%84%E2%80%85%EB%AC%B8%EC%9E%90%EC%97%B4)
+     - 단순히 부분 문자열이 있냐 없냐만 확인할거라면 strstr 함수 활용해. 시간복잡도 O(N+M)
+     - [strstr 활용한 모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Bronze/16916.%E2%80%85%EB%B6%80%EB%B6%84%E2%80%85%EB%AC%B8%EC%9E%90%EC%97%B4)
      - 그런게 아니라 조금 더 응용해야 되는 상황이면 str.find() 쓰고. 시간복잡도 O(N*M)
      - 시간초과 뜨면 문제 포기해.
      - find를 활용하여 부분 문자열이 몇개 들어있는지 찾기
