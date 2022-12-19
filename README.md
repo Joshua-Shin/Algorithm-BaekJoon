@@ -106,3 +106,20 @@
     3. k 정점을 거쳐가는 경우의 비용이 작을때, nxt[i][j] = nxt[i][k]로 갱신
     4. i에서 j까지의 경로 담는법 : while(st != j) { path.push_back(st); st = nxt[st][j]; } path.push_back(j);
   - [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Gold/11780.%E2%80%85%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%93%9C%E2%80%852)
+
+- KMP 알고리즘
+     - 이해 못함
+     - 그냥 부분 문자열 찾기 문제 나오면 그냥 str.find() 쓰고, 시간초과 뜨면 문제 포기해.
+     - find를 활용하여 부분 문자열이 몇개 들어있는지 찾기
+     - ``` 
+       while(1) {
+            int findedIdx = str.find(pattern, idx);
+            if(findedIdx == -1) break;
+            idx = findedIdx + pattern.size();
+            cnt++;
+       }
+       ```
+     - c 함수 중에 strstr을 사용하는 방법도 있는데 이건 string 안먹고 char * [] 이걸로 인자 넘겨줘야 되고 반환값도 char * 임.. 사용안해..
+     - map이나 set, hash 값을 이용하는 다른 방법이 없을까 고민해봤는데 결국 for문 안에서 substr을 만들어서 그걸 map에 넣거나 hash값을 만들어서 패턴과 비교하는건데, for문이 O(N), substr은 O(M) 이라, find 쓰는거랑 별 차이 없는듯.
+     - Rabin-karp가 시간복잡도가 O(N)인, 해쉬값을 활용한 알고리즘 같은데,, 나중에 다시 보자.
+     
