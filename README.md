@@ -124,4 +124,10 @@
        ```
      - map이나 set, hash 값을 이용하는 다른 방법이 없을까 고민해봤는데 결국 for문 안에서 substr을 만들어서 그걸 map에 넣거나 hash값을 만들어서 패턴과 비교하는건데, for문이 O(N), substr은 O(M) 이라, find 쓰는거랑 별 차이 없는듯.
      - Rabin-karp가 시간복잡도가 O(N)인, 해쉬값을 활용한 알고리즘 이라는데,,, 나중에 다시 보자.
-     
+
+- 트라이
+     - 문자열을 저장할 수 있는 트리 자료구조
+     - 단순 문자열 삽입/삭제/조회 할때는 그냥 시간상 공간상 map 쓰는게 훨씬 이득
+     - 다만, 트라이를 써야만 풀리는 문제들이 있어. 자동완성기능처럼 접두사만 가지고 이래저래 해야 하는 문제들.
+     - [트라이 구현](https://github.com/Joshua-Shin/Algorithm-BaekJoon/blob/main/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EA%B5%AC%ED%98%84%ED%95%A8%EC%88%98/%ED%8A%B8%EB%9D%BC%EC%9D%B4.cpp)
+     - [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Silver/14425.%E2%80%85%EB%AC%B8%EC%9E%90%EC%97%B4%E2%80%85%EC%A7%91%ED%95%A9)
