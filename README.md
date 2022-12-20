@@ -131,3 +131,10 @@
      - 다만, 트라이를 써야만 풀리는 문제들이 있어. 자동완성기능처럼 접두사만 가지고 이래저래 해야 하는 문제들.
      - [트라이 구현](https://github.com/Joshua-Shin/Algorithm-BaekJoon/blob/main/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EA%B5%AC%ED%98%84%ED%95%A8%EC%88%98/%ED%8A%B8%EB%9D%BC%EC%9D%B4.cpp)
      - [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Silver/14425.%E2%80%85%EB%AC%B8%EC%9E%90%EC%97%B4%E2%80%85%EC%A7%91%ED%95%A9)
+
+- 이후 과정
+     - 연습문제 + 기본문제 + 응용문제 체크 표시된 문제중 안푼거 풀기
+     - 랜덤 디펜스 : 티어와 알고리즘 분류를 보이지 않게 하고 문제를 푸는거. 실3~골3 난이도 안에서 랜덤 디펜스를 진행.
+     - 취약한 알고리즘 분야 다시 개념 복습 및 응용 문제 풀기
+     - 세그먼트 트리, 기하, 라빈 카프, 유량, SCC, BCC, 게임 이론 등 다양한 알고리즘 익혀가기
+     - 코드 포스, 앳코드, 대회 참여.
