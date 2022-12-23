@@ -63,7 +63,7 @@
   - 이진검색트리로 구현한 C++ STL : set, multiset, map
   - 엄밀히 말하면 그냥 이진검색트리가 아니라 균형잡힌 이진검색 트리임. 
   - 그 중 내가 구현해본 모델로 AVL가 있는데, C++에서는 AVL이 아니라 레드블랙트리로 구현함. 이게 더 성능 좋으니.
-  - [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Gold/7662.%E2%80%85%EC%9D%B4%EC%A4%91%E2%80%85%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%E2%80%85%ED%81%90)
+  - [모범 예제1](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Gold/7662.%E2%80%85%EC%9D%B4%EC%A4%91%E2%80%85%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%E2%80%85%ED%81%90), [모범 예제2](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Gold/1202.%E2%80%85%EB%B3%B4%EC%84%9D%E2%80%85%EB%8F%84%EB%91%91)
 
 - 다익스트라
   - 가중치가 2 이상인 그래프에서 한 정점에서 시작하여 다른 모든 정점까지의 최단 경로를 찾는 알고리즘
