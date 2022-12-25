@@ -1,25 +1,25 @@
 #include <bits/stdc++.h>
 using namespace std;
 vector<int> v;
-void postOrder(int root, int end) {
-    if(root == end) return;
-    if(root == end -1) {
-        cout << v[root] << '\n';
+void postOrder(int st, int en) {
+    if(st == en) return;
+    if(st == en-1) {
+        cout << v[st] << '\n';
         return;
     }
-    int cur = root + 1;
-    while(cur < end) {
-        if(v[root] < v[cur]) break;
-        cur++;
+    int idx = st + 1;
+    while(idx < en) {
+        if(v[st] < v[idx]) break;
+        idx++;
     }
-    postOrder(root + 1, cur);
-    postOrder(cur, end);
-    cout << v[root] << '\n';
+    postOrder(st+1, idx);
+    postOrder(idx, en);
+    cout << v[st] << '\n';
 }
 int main() {
     cin.tie(0)->sync_with_stdio(0);
     int num;
-    while(cin>>num)
+    while(cin >> num)
         v.push_back(num);
     postOrder(0, v.size());
     return 0;
