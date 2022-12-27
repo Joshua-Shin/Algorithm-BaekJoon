@@ -32,8 +32,6 @@ int cnt(int cur) {
 }
 int main() {
     cin.tie(0)->sync_with_stdio(0);
-    // bfs 돌면서 부모노드 갱신
-    // 입력받은 값을 루트로 bfs 돌리면서 카운트
     cin >> n >> r >> q;
     for(int i = 0; i<n-1; i++) {
         cin >> u >> v;
@@ -43,12 +41,11 @@ int main() {
     bfs(r);
     memset(cache, -1, sizeof(cache));
     vector<int> answer;
-    for(int i = 0; i<q; i++) { // O(Q) == 10^5
+    for(int i = 0; i<q; i++) {
         cin >> root;
         answer.push_back(cnt(root));
     }
-    for(auto x: answer) {
+    for(auto x: answer)
         cout << x << '\n';
-    }
     return 0;
 }
