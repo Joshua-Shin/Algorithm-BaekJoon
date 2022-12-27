@@ -2,33 +2,16 @@
 using namespace std;
 int n, r, q, u, v, root;
 vector<int> adj[100001];
-int p[100001];
-int cache[100001];
-int bfs(int x) {
-    int cnt = 1;
-    queue<int> q;
-    q.push(x);
-    while(!q.empty()) {
-        x = q.front();
-        q.pop();
-        for(auto nx : adj[x]) {
-            if(nx == p[x]) continue;
-            p[nx] = x;
-            q.push(nx);
-            cnt++;
-        }
+int cnt[100001];
+bool check[100001];
+int bfs(int cur) {
+    check[cur] = true;
+    cnt[cur] = 1;
+    for(auto nx: adj[cur]) {
+        if(check[nx]) continue;
+        cnt[cur] += bfs(nx);
     }
-    return cache[x] = cnt;
-}
-int cnt(int cur) {
-    int &ret = cache[cur];
-    if(ret!= -1) return ret;
-    ret = 1;
-    for(auto nx : adj[cur]) {
-        if(nx==p[cur]) continue;
-        ret += cnt(nx);
-    }
-    return ret;
+    return cnt[cur];
 }
 int main() {
     cin.tie(0)->sync_with_stdio(0);
@@ -38,12 +21,12 @@ int main() {
         adj[u].push_back(v);
         adj[v].push_back(u);
     }
+    memset(check, false, sizeof(check));
     bfs(r);
-    memset(cache, -1, sizeof(cache));
     vector<int> answer;
     for(int i = 0; i<q; i++) {
         cin >> root;
-        answer.push_back(cnt(root));
+        answer.push_back(cnt[root]);
     }
     for(auto x: answer)
         cout << x << '\n';
