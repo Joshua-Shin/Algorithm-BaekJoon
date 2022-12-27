@@ -18,7 +18,7 @@ int bfs(int x) {
             cnt++;
         }
     }
-    return cnt;
+    return cache[x] = cnt;
 }
 int cnt(int cur) {
     int &ret = cache[cur];
