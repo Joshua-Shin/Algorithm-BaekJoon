@@ -1,37 +1,44 @@
 #include <bits/stdc++.h>
 using namespace std;
-int n, m;
-int cost[1001][1001]; // cost[x][y] = x에서 y로 가는데 드는 최소 비용
-int main() {
-    cin.tie(0)->sync_with_stdio(0);
-    cin >> n >> m;
-    for(int i = 1; i<=1000; i++)
-        for(int j = 1; j<=1000; j++) {
-            if(i==j) continue;
-            cost[i][j] = 1e9;
-        }
-    for(int i = 0; i < n-1; i++) {
-        int a, b, c;
-        cin >> a >> b >> c;
-        cost[a][b] = c;
-        cost[b][a] = c;
-    }
-    for(int k = 1; k<=n; k++) {
-        for(int i = 1; i<=n; i++) {
-            for(int j = 1; j<=n; j++) {
-                if(cost[i][j] < cost[i][k]+cost[k][j]) continue;
-                cost[i][j] = cost[i][k]+cost[k][j];
+vector<pair<int,int>> adj[1001];
+int dist[1001];
+int bfs(int x, int en) {
+    queue<int> q;
+    dist[x] = 0;
+    q.push(x);
+    while(!q.empty()) {
+        x = q.front();
+        if(x==en) return dist[x];
+        q.pop();
+        for(int k = 0; k<adj[x].size(); k++) {
+            int nx = adj[x][k].first;
+            int nCost = adj[x][k].second;
+            if(dist[nx]==-1) {
+                dist[nx] = dist[x] + nCost;
+                q.push(nx);
             }
         }
     }
+    return 0;
+}
+int main() {
+    cin.tie(0)->sync_with_stdio(0);
+    int n, m;
+    cin >> n >> m;
+    for(int i = 0; i<n-1; i++) {
+        int a, b, c;
+        cin >> a >> b >> c;
+        adj[a].push_back({b,c});
+        adj[b].push_back({a,c});
+    }
     vector<int> answer;
-    for(int i = 0; i<m; i++) {
+    while(m--) {
         int a, b;
         cin >> a >> b;
-        answer.push_back(cost[a][b]);
+        memset(dist, -1, sizeof(dist));
+        answer.push_back(bfs(a, b));
     }
     for(auto x: answer)
         cout << x << '\n';
     return 0;
 }
-// 노드의 번호가 1번부터 n번까지라는 말이 없눈디..
