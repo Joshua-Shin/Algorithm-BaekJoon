@@ -1,4 +1,4 @@
-1 일 1 알고리즘 풀이 저장소
+1일 1시간 알고리즘 풀이 저장소
 =================
 - 지금은 [바킹독 문제집](https://github.com/encrypted-def/basic-algo-lecture/blob/master/workbook.md) 및 [solved class](https://solved.ac/class) 문제 중심으로 풀고 있습니다.
 - [백준 - Platinum V](https://solved.ac/profile/sjh910805) 
