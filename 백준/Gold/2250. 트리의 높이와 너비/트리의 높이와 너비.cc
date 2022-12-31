@@ -1,71 +1,80 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-struct Node
-{
-    int left, right;
-    int level, order;
-};
-Node a[10001];
-int cnt[10001];
-int col = 0;
-int maxleft[10001];
-int maxright[10001];
-void inorder(int node, int depth)
-{
-    if(node==-1)
-        return;
-    inorder(a[node].left, depth+1);
-    a[node].level = depth;
-    a[node].order = (++col);
-    inorder(a[node].right, depth+1);
-}
-int main()
-{
-    int n;
-    cin >> n; //19
-    for(int i =0; i<n; i++)
-    {
-        int x, y, z;
-        cin >> x >> y >> z;
-        a[x].left = y;
-        a[x].right = z;
-        if(y!=-1) cnt[y] += 1;
-        if(z!=-1) cnt[z] += 1;
-    }// 입력완료
-    int root = 0;
-    for(int i=1; i<=n; i++)
-    {
-        if(cnt[i]==0)
-            root = i;
-    }// 루트노드 설정완료
-    inorder(root, 1);
-    // 각 노드에다가 행 열 숫자 저장 완료
-    int maxdepth =0;
-    for(int i=1; i<=n; i++)
-    {
-        int order = a[i].order;
-        int level = a[i].level;
-        if(maxleft[level]==0)
-        {
-            maxleft[level] = order;
+int n;
+int lc[10001];
+int rc[10001]; // rc[x] = x의 오른쪽 자식 노드
+int row[10001]; // row[x] = 정점 x의 행 값
+int col[10001]; // col[x] = 정점 x의 열 값
+int maxLc[10001]; // maxLc[x] = 레벨이 x인 노드 중 왼쪽 노드 번호
+int maxRc[10001];
+int root;
+int p[10001];
+int bfs(int x) {
+    int maxLevel = 1;
+    queue<int> q;
+    row[x] = 1;
+    maxLc[row[x]] = x;
+    maxRc[row[x]] = x;
+    q.push(x);
+    while(!q.empty()) {
+        x = q.front();
+        maxLevel = max(maxLevel, row[x]);
+        // cout << "x: " << x << '\n';
+        // cout << "row[x]: " << row[x] << '\n';
+        // cout << "maxLc[row[x]]: " << maxLc[row[x]] << '\n';
+        // cout << "col[maxLc[row[x]]]: " << col[maxLc[row[x]]] << '\n';
+        if(col[x] < col[maxLc[row[x]]] || maxLc[row[x]]==0) maxLc[row[x]] = x;
+        if(col[x] > col[maxRc[row[x]]]) maxRc[row[x]] = x;
+        q.pop();
+        if(lc[x]!=-1){
+            row[lc[x]] = row[x] + 1;
+            q.push(lc[x]);
         }
-        else
-        {
-            maxleft[level] = min(order, maxleft[level]);
-        }
-        maxright[level] = max(maxright[level], order);
-        maxdepth = max(maxdepth, level);
-    }// 가장 최고 레벨 저장, 레벨을 인덱스로 하여 가장 왼쪽에 있는열, 가장 오른쪽에 있는열 저장.
-    int ans = 0;
-    int anslev = 0;
-    for(int i =1; i<= maxdepth; i++)
-    {
-        if(ans < maxright[i]-maxleft[i]+1)
-        {
-            ans = maxright[i]-maxleft[i]+1;
-            anslev = i;
+        if(rc[x]!=-1){
+            row[rc[x]] = row[x] + 1;
+            q.push(rc[x]);
         }
     }
-    cout << anslev << ' ' << ans << '\n';
+    return maxLevel;
+}
+int colValue = 1;
+void inOrder(int x) {
+    if(lc[x]!=-1) inOrder(lc[x]);
+    col[x] = colValue++;
+    if(rc[x]!=-1) inOrder(rc[x]);
+}
+void findRoot(int x) {
+    if(p[x]==0) {
+        root = x;
+        return;
+    }
+    findRoot(p[x]);
+}
+int main() {
+    cin.tie(0)->sync_with_stdio(0);
+    cin >> n;
+    for (int i = 1; i <= n; i++) {
+        int a, b, c;
+        cin >> a >> b >> c;
+        lc[a] = b;
+        rc[a] = c;
+        p[b] = a;
+        p[c] = a;
+    }
+    findRoot(1);
+    inOrder(root);
+    int maxLevel = bfs(root);
+    int answerWidth = 1;
+    int answerLevel = 1;
+    for(int i = 1; i<=maxLevel; i++) {
+        int left = maxLc[i];
+        int right = maxRc[i];
+        int width = col[right] - col[left] + 1;
+        if(width > answerWidth) {
+            answerWidth = width;
+            answerLevel = row[left];
+        }
+    }
+    cout << answerLevel << ' ' << answerWidth << '\n';
     return 0;
 }
