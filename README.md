@@ -89,6 +89,11 @@
   - 그 중 내가 구현해본 모델로 AVL가 있는데, C++에서는 AVL이 아니라 레드블랙트리로 구현함. 이게 더 성능 좋으니.
   - [모범 예제1](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Gold/7662.%E2%80%85%EC%9D%B4%EC%A4%91%E2%80%85%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%E2%80%85%ED%81%90), [모범 예제2](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Gold/1202.%E2%80%85%EB%B3%B4%EC%84%9D%E2%80%85%EB%8F%84%EB%91%91)
 
+- 유니온 파인드 ( = 합집합 찾기, 서로소 집합 알고리즘)
+     - getParent(int x), unionParent(int x, int y), isSameParent(int x, int y) 이 세 가지 함수를 구현
+     - 부모 정점을 저장하는 p[x] 테이블을 위의 함수로 갱신하여 해당 정점이 같은 부모를 공유 하나 안하나를 확인하는 알고리즘
+     - [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/88ff989c5957ecfa5a91962feb39b21952b5f394/%EB%B0%B1%EC%A4%80/Gold/1717.%E2%80%85%EC%A7%91%ED%95%A9%EC%9D%98%E2%80%85%ED%91%9C%ED%98%84)
+
 - 최소 신장 트리 ( = 최소 스패닝 트리)
   - 신장 트리 중 가중치의 총합이 최소값을 이루는 트리
   - 크루스칼 알고리즘 + 유니온 파인드 알고리즘으로 푼다.
