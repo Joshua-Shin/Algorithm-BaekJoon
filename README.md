@@ -1,6 +1,7 @@
 1일 1시간 알고리즘 저장소
 =================
-- 지금은 [바킹독 문제집](https://github.com/encrypted-def/basic-algo-lecture/blob/master/workbook.md) 및 [solved class](https://solved.ac/class) 문제 중심으로 풀고 있습니다.
+- 하루에 한시간씩 알고리즘 문제 풀이한것을 저장하고 저만의 알고리즘 공부법을 기록하고 있는있는 저장소 입니다.
+- 취약 알고리즘 문제 유형과 다양한 문제 모음집을 중심으로 [풀 문제 리스트](https://github.com/Joshua-Shin/PlansFor2023/blob/main/README.md#%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)를 계속 갱신해가며 풀이하고 있습니다.
 - [백준 - Platinum V](https://solved.ac/profile/sjh910805) 
      
      
