@@ -41,9 +41,10 @@ int main() {
 
     int cnt = 0, answer = 0;
     for(int i = 0; i< m ; i++) {
-        if(isSameParent(get<1>(edge[i]), get<2>(edge[i]))) continue;
-        answer += get<0>(edge[i]);
-        unionParent(get<1>(edge[i]), get<2>(edge[i]));
+        auto [cost, a, b] = edge[i];
+        if(isSameParent(a, b)) continue;
+        answer += cost;
+        unionParent(a, b);
         if(++cnt == n-1) break;
     }
     cout << answer << '\n';
