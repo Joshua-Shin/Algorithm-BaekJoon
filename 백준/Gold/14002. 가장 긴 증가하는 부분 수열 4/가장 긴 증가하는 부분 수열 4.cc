@@ -16,33 +16,27 @@ int main() {
     cin.tie(0)->sync_with_stdio(0);
     cin >> n;
     vector<int> v(n);
-    for (int i = 0; i < n; i++)
-        cin >> v[i];
+    for (int i = 0; i < n; i++) cin >> v[i];
     int ans = 1;
     memset(cache, -1, sizeof(cache));
     for(int i = 0; i<n; i++)
         ans = max(ans, go(i, v));
     cout << ans << '\n';
     vector<int> ansSeq;
-    int findValue = ans;
-    int findPreIdx;
-    for(int i = 0; i<n; i++) {
-        if(findValue == cache[i]) {
-            findPreIdx = i;
+    int findIdx;
+    for(int i = 0; i<n; i++)
+        if(ans == cache[i]) {
+            ans--;
+            findIdx = i;
             ansSeq.push_back(v[i]);
             break;
         }
-    }
-    findValue--;
-    for(int i = findPreIdx; i<n; i++) {
-        if(cache[i]==findValue && v[i] > v[findPreIdx]) {
-            findValue--;
-            findPreIdx = i;
+    for(int i = findIdx + 1; i<n && ans; i++)
+        if(cache[i]==ans && v[i] > v[findIdx]) {
+            ans--;
+            findIdx = i;
             ansSeq.push_back(v[i]);
-            if(!findValue) break;
         }
-    }
-    
     for(auto x: ansSeq) cout << x << ' ';
     return 0;
 }
