@@ -1,18 +1,27 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-int n, a[1000], d[1000], ans;
-int main(){
+int n;
+int cache[1001];
+int go(int idx, vector<int> &v) {
+    if(idx == n) return 0;
+    int &ret = cache[idx];
+    if(ret != -1) return ret;
+    ret = 1;
+    for(int i = idx +1; i<n; i++) 
+        if(v[i] < v[idx]) ret = max(ret, go(i, v) + 1);
+    return ret;
+}
+int main() {
+    cin.tie(0)->sync_with_stdio(0);
     cin >> n;
-    for (int i = 0; i < n; i++){
-        cin >> a[i];
-        d[i] = 1;
+    vector<int>v(n);
+    for (int i = 0; i < n; i++)
+        cin >> v[i];
+    int ans = 1;
+    memset(cache, -1, sizeof(cache));
+    for(int k = 0; k<n; k++) {
+        ans = max(ans, go(k, v));
     }
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < i; j++)
-            if (a[j] > a[i] && d[i] < d[j] + 1)
-                d[i] = d[j] + 1;
-    for (int i = 0; i < n; i++)
-        ans = max(ans,d[i]);
-    cout << ans;
+    cout << ans << '\n';
     return 0;
 }
