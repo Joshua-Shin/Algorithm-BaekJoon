@@ -48,6 +48,14 @@
     2. 점화식 구성
     3. 기저사례들을 정리
     4. 메모이제이션 적용해서 함수 구현
+  - LCS 문제
+     - Longest Common Subsuquence 최장 공통 부분수열을 구하는 문제
+     - 길이를 구할떄,
+     - if(a[x]==b[y]) dp(x, y) = dp(x+1, y+1) + 1;
+     - else dp(x, y) = max(dp(x, y+1), dp(x+1, y));
+     - 구한 수열을 출력해야 할때,
+     - if(cache[x][y]==cache[x][y+1]) y++; else if(cache[x][y]==cache[x+1][y]) x++; else ans += a[x]; x++; y++;
+     - [모범 예제]()
     
 - 그리디
   - 100% 신뢰할만한 풀이법이 떠오르지 않은 상태라면, 일단 스킵하고 마지막에 푼다.
