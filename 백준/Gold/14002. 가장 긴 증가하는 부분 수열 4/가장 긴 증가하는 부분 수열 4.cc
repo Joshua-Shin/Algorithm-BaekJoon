@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-int n;
+int n, ans;
 int cache[1001];
 int go(int idx, vector<int> &v) {
     if(idx==n) return 0;
@@ -17,7 +17,6 @@ int main() {
     cin >> n;
     vector<int> v(n);
     for (int i = 0; i < n; i++) cin >> v[i];
-    int ans = 1;
     memset(cache, -1, sizeof(cache));
     for(int i = 0; i<n; i++)
         ans = max(ans, go(i, v));
