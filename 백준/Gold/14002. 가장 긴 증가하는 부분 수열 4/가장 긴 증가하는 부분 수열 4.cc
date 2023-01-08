@@ -7,9 +7,10 @@ int go(int idx, vector<int> &v) {
     int &ret = cache[idx];
     if(ret != -1) return ret;
     ret = 1;
-    for(int i = idx + 1; i< n; i++)
-        if(v[idx] < v[i])
-            ret = max(ret, go(i, v)+1);
+    for(int i = idx + 1; i< n; i++) {
+        if(v[idx] >= v[i]) continue;
+        ret = max(ret, go(i, v)+1);
+    }
     return ret;
 }
 int main() {
@@ -22,20 +23,14 @@ int main() {
         ans = max(ans, go(i, v));
     cout << ans << '\n';
     vector<int> ansSeq;
-    int findIdx;
-    for(int i = 0; i<n; i++)
-        if(ans == cache[i]) {
-            ans--;
-            findIdx = i;
-            ansSeq.push_back(v[i]);
-            break;
-        }
-    for(int i = findIdx + 1; i<n && ans; i++)
-        if(cache[i]==ans && v[i] > v[findIdx]) {
-            ans--;
-            findIdx = i;
-            ansSeq.push_back(v[i]);
-        }
+    int findIdx = -1;
+    for(int i = 0; i<n && ans; i++) {
+        if(ans!=cache[i]) continue;
+        if(!(findIdx==-1 || v[i] > v[findIdx])) continue;
+        ans--;
+        findIdx = i;
+        ansSeq.push_back(v[i]);
+    }
     for(auto x: ansSeq) cout << x << ' ';
     return 0;
 }
