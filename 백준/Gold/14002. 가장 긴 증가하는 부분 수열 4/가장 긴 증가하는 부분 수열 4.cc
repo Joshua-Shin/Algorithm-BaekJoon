@@ -1,30 +1,48 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-int a[1000], d[1000], v[1000], ans, p, n, i, j;
-void go(int p){
-    if (p == -1)
-        return;
-    go(v[p]);
-    cout << a[p] << ' ';
+int n;
+int cache[1001];
+int go(int idx, vector<int> &v) {
+    if(idx==n) return 0;
+    int &ret = cache[idx];
+    if(ret != -1) return ret;
+    ret = 1;
+    for(int i = idx + 1; i< n; i++)
+        if(v[idx] < v[i])
+            ret = max(ret, go(i, v)+1);
+    return ret;
 }
-int main(){
+int main() {
+    cin.tie(0)->sync_with_stdio(0);
     cin >> n;
-    for (; i < n; i++){
-        cin >> a[i];
-        d[i] = 1;
-        v[i] = -1;
-        for(j=0;j<i; j++){
-            if(a[j] <a[i] && d[i] < d[j] +1){
-                d[i] = d[j] +1;
-                v[i] = j;
-            }
-        }
-        if(ans < d[i]){
-            ans = d[i];
-            p =i;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++)
+        cin >> v[i];
+    int ans = 1;
+    memset(cache, -1, sizeof(cache));
+    for(int i = 0; i<n; i++)
+        ans = max(ans, go(i, v));
+    cout << ans << '\n';
+    vector<int> ansSeq;
+    int findValue = ans;
+    int findPreIdx;
+    for(int i = 0; i<n; i++) {
+        if(findValue == cache[i]) {
+            findPreIdx = i;
+            ansSeq.push_back(v[i]);
+            break;
         }
     }
-    cout << ans << '\n';
-    go(p);
+    findValue--;
+    for(int i = findPreIdx; i<n; i++) {
+        if(cache[i]==findValue && v[i] > v[findPreIdx]) {
+            findValue--;
+            findPreIdx = i;
+            ansSeq.push_back(v[i]);
+            if(!findValue) break;
+        }
+    }
+    
+    for(auto x: ansSeq) cout << x << ' ';
     return 0;
 }
