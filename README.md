@@ -55,7 +55,7 @@
      - else dp(x, y) = max(dp(x, y+1), dp(x+1, y));
      - 구한 수열을 출력해야 할때,
      - if(cache[x][y]==cache[x][y+1]) y++; else if(cache[x][y]==cache[x+1][y]) x++; else ans += a[x]; x++; y++;
-     - [모범 예제]()
+     - [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Gold/9252.%E2%80%85LCS%E2%80%852)
     
 - 그리디
   - 100% 신뢰할만한 풀이법이 떠오르지 않은 상태라면, 일단 스킵하고 마지막에 푼다.
