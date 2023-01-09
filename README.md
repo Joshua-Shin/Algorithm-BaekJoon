@@ -48,14 +48,6 @@
     2. 점화식 구성
     3. 기저사례들을 정리
     4. 메모이제이션 적용해서 함수 구현
-  - LCS 문제
-     - Longest Common Subsuquence 최장 공통 부분수열을 구하는 문제
-     - 길이를 구할떄,
-     - if(a[x]==b[y]) dp(x, y) = dp(x+1, y+1) + 1;
-     - else dp(x, y) = max(dp(x, y+1), dp(x+1, y));
-     - 구한 수열을 출력해야 할때,
-     - if(cache[x][y]==cache[x][y+1]) y++; else if(cache[x][y]==cache[x+1][y]) x++; else ans += a[x]; x++; y++;
-     - [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Gold/9252.%E2%80%85LCS%E2%80%852)
     
 - 그리디
   - 100% 신뢰할만한 풀이법이 떠오르지 않은 상태라면, 일단 스킵하고 마지막에 푼다.
@@ -183,5 +175,15 @@
      
 -----------------------------
 ### 유명 문제별 풀이전략
+- LCS
+     - Longest Common Subsuquence 최장 공통 부분수열을 구하는 문제.
+     - DP로 해결
+     - 길이를 구할때,
+     - if(a[x]==b[y]) dp(x, y) = dp(x+1, y+1) + 1;
+     - else dp(x, y) = max(dp(x, y+1), dp(x+1, y));
+     - 구한 수열을 출력해야 할때,
+     - if(cache[x][y]==cache[x][y+1]) y++; else if(cache[x][y]==cache[x+1][y]) x++; else ans += a[x]; x++; y++;
+     - [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Gold/9252.%E2%80%85LCS%E2%80%852)
 - LIS
-     - DP 말고 제발 이분탐색으로 풀어... 성능도 좋고, 더 쉽고...
+     - 길이만 구해도 되는 상황이면 이분탐색 [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/c18408321f067ae942396892b1fb8b66c47a4f5a/%EB%B0%B1%EC%A4%80/Gold/12015.%E2%80%85%EA%B0%80%EC%9E%A5%E2%80%85%EA%B8%B4%E2%80%85%EC%A6%9D%EA%B0%80%ED%95%98%EB%8A%94%E2%80%85%EB%B6%80%EB%B6%84%E2%80%85%EC%88%98%EC%97%B4%E2%80%852)
+     - 길이 + 수열을 구해야 되는 상황이면 DP [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/c18408321f067ae942396892b1fb8b66c47a4f5a/%EB%B0%B1%EC%A4%80/Gold/14002.%E2%80%85%EA%B0%80%EC%9E%A5%E2%80%85%EA%B8%B4%E2%80%85%EC%A6%9D%EA%B0%80%ED%95%98%EB%8A%94%E2%80%85%EB%B6%80%EB%B6%84%E2%80%85%EC%88%98%EC%97%B4%E2%80%854)
