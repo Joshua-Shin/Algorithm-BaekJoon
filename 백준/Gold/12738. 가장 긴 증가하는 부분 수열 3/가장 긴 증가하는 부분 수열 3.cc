@@ -1,17 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
+int n;
+int arr[1000002];
 int main() {
-    int n;
+    cin.tie(0)->sync_with_stdio(0);
     cin >> n;
-    vector <int> v;
-    for(int i =0; i<n; i++) {
-        int temp;
-        cin >> temp;
-        auto iter = lower_bound(v.begin(), v.end(), temp);
-        if(iter==v.end())
-           v.push_back(temp);
-        else
-            (*iter) = temp; 
+    for (int i = 0; i < n; i++) cin >> arr[i];
+    vector<int> v;
+    for(int i = 0 ; i<n; i++) {
+        auto it = lower_bound(v.begin(), v.end(), arr[i]);
+        if(it==v.end()) v.push_back(arr[i]);
+        else *it = arr[i];
     }
     cout << v.size() << '\n';
     return 0;
