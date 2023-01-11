@@ -186,5 +186,7 @@
      - if(cache[x][y]==cache[x][y+1]) y++; else if(cache[x][y]==cache[x+1][y]) x++; else ans += a[x]; x++; y++;
      - [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Gold/9252.%E2%80%85LCS%E2%80%852)
 - LIS
-     - 길이만 구해도 되는 상황이면 이분탐색 [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/c18408321f067ae942396892b1fb8b66c47a4f5a/%EB%B0%B1%EC%A4%80/Gold/12015.%E2%80%85%EA%B0%80%EC%9E%A5%E2%80%85%EA%B8%B4%E2%80%85%EC%A6%9D%EA%B0%80%ED%95%98%EB%8A%94%E2%80%85%EB%B6%80%EB%B6%84%E2%80%85%EC%88%98%EC%97%B4%E2%80%852)
-     - 길이 + 수열을 구해야 되는 상황이면 DP [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/c18408321f067ae942396892b1fb8b66c47a4f5a/%EB%B0%B1%EC%A4%80/Gold/14002.%E2%80%85%EA%B0%80%EC%9E%A5%E2%80%85%EA%B8%B4%E2%80%85%EC%A6%9D%EA%B0%80%ED%95%98%EB%8A%94%E2%80%85%EB%B6%80%EB%B6%84%E2%80%85%EC%88%98%EC%97%B4%E2%80%854)
+     - dp로 푸는 방법과 이분탐색으로 푸는 방법이 있는데, 무조건 이분탐색으로 풀어.
+     - 길이만 구하면 되는 경우와 길이 + 추적해야되는 상황이 있는데, 어떤 상황이든 이분탐색으로 다 가능.
+     - 추적할때, stack, set, vector에 담아 reverse하기 다 해봤는데, set이 제일 느리고 stack이랑 vector가 거의 성능 비슷.
+     - [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/385ccb00381fdb5d32cfd13203b6bda462830a34/%EB%B0%B1%EC%A4%80/Platinum/14003.%E2%80%85%EA%B0%80%EC%9E%A5%E2%80%85%EA%B8%B4%E2%80%85%EC%A6%9D%EA%B0%80%ED%95%98%EB%8A%94%E2%80%85%EB%B6%80%EB%B6%84%E2%80%85%EC%88%98%EC%97%B4%E2%80%855)
