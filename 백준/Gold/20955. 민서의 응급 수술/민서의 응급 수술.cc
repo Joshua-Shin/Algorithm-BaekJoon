@@ -3,32 +3,15 @@ using namespace std;
 int n, m;
 vector<int> adj[100001];
 bool check[100001];
-int p[100001];
-int bfs(int x) {
-    int cnt = 0;
-    queue<int> q;
+void dfs(int x) {
+    if(check[x]) return;
     check[x] = true;
-    q.push(x);
-    while(!q.empty()) {
-        x = q.front();
-        q.pop();
-        for(auto nx: adj[x]) {
-            if(nx == p[x]) continue;
-            if(check[nx]) {
-                cnt++;
-                continue;
-            }
-            check[nx] = true;
-            p[nx] = x;
-            q.push(nx);
-        }
-    }
-    return cnt/2;
+    for(auto nx: adj[x]) dfs(nx);
 }
 int main() {
     cin.tie(0)->sync_with_stdio(0);
     cin >> n >> m;
-    while(m--) {
+    for(int i = 0; i < m; i++) {
         int a, b;
         cin >> a >> b;
         adj[a].push_back(b);
@@ -36,13 +19,10 @@ int main() {
     }
     memset(check, false, sizeof(check));
     int groupCnt = 0;
-    int cutCnt = 0;
-    for(int i = 1; i<=n; i++) {
-        if(check[i]==false) {
-            groupCnt++;
-            cutCnt += bfs(i);
-        }
+    for(int i = 1; i <= n; i++) {
+        if(check[i]) continue;
+        dfs(i);
+        groupCnt++;
     }
-    cout <<  groupCnt -1 + cutCnt << '\n';
-    return 0;
+    cout << (groupCnt -1) + (groupCnt -1 + m) - (n - 1);
 }
