@@ -77,7 +77,7 @@
 - 이진 트리
      - 이진 트리의 경우 입력을 받을 때 lc[x](= x 노드의 왼쪽 자식 노드 값), rc[x] 배열을 채우면 클래스를 정의할 필요 없이 진행할 수 있다.
      - 이진 트리의 전위, 중위, 후위 순회 [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Silver/1991.%E2%80%85%ED%8A%B8%EB%A6%AC%E2%80%85%EC%88%9C%ED%9A%8C)
-     - 이진 트리의 전위순회 결과가 주어졌을때 후위순회 결과를 출력하는 [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/blob/5780d4441342e36fa307a999dd3f2d843c21f6a2/README.md)
+     - 이진 트리의 전위순회 결과가 주어졌을때 후위순회 결과를 출력하는 [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Gold/5639.%E2%80%85%EC%9D%B4%EC%A7%84%E2%80%85%EA%B2%80%EC%83%89%E2%80%85%ED%8A%B8%EB%A6%AC)
 
 - 이진 검색 트리 ( = 이진 탐색 트리)
   - 왼쪽 서브트리의 모든 값이 부모노드 보다 작고, 오른쪽 서브트리의 모든 요소 값들이 부모노드 보다 작은 이진 트리
