@@ -73,7 +73,12 @@
   - 루트에서 bfs를 돌릴 경우 depth 순서대로 방문을 한다.(= 레벨 순회)
   - 이를 이용해, bfs를 돌며 각 노드의 부모배열과 depth 배열을 채울 수 있다.
   - 트리의 부모 배열 채우기 [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Silver/11725.%E2%80%85%ED%8A%B8%EB%A6%AC%EC%9D%98%E2%80%85%EB%B6%80%EB%AA%A8%E2%80%85%EC%B0%BE%EA%B8%B0)
-
+  - 트리는 자료구조중 하나이기에, 사실 트리를 바탕으로 나올 수 있는 문제 유형은 무궁무진
+  - 트리 + 재귀 문제. 이진검색트리이고 입력값이 무작위일떄 후위순회를 출력하라든가.[모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/90478d645e427fa6cab82e94d23ce756da09ccbc/%EB%B0%B1%EC%A4%80/Gold/26260.%E2%80%85%EC%9D%B4%EA%B0%80%E2%80%85%EB%B9%A0%EC%A7%84%E2%80%85%EC%9D%B4%EC%A7%84%E2%80%85%ED%8A%B8%EB%A6%AC)
+  - 트리 + DP 문제.
+  - 트라이.
+  - 최소 공통 조상.
+  
 - 이진 트리
      - 이진 트리의 경우 입력을 받을 때 lc[x](= x 노드의 왼쪽 자식 노드 값), rc[x] 배열을 채우면 클래스를 정의할 필요 없이 진행할 수 있다.
      - 이진 트리의 전위, 중위, 후위 순회 [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Silver/1991.%E2%80%85%ED%8A%B8%EB%A6%AC%E2%80%85%EC%88%9C%ED%9A%8C)
