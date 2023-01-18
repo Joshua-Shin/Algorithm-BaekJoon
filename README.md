@@ -75,9 +75,9 @@
   - 트리의 부모 배열 채우기 [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Silver/11725.%E2%80%85%ED%8A%B8%EB%A6%AC%EC%9D%98%E2%80%85%EB%B6%80%EB%AA%A8%E2%80%85%EC%B0%BE%EA%B8%B0)
   - 트리는 자료구조중 하나이기에, 사실 트리를 바탕으로 나올 수 있는 문제 유형은 무궁무진
   - 트리 + 재귀 문제. 
-     - 이진검색트리이고 입력값이 무작위일떄 후위순회를 출력하라든가.[모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/90478d645e427fa6cab82e94d23ce756da09ccbc/%EB%B0%B1%EC%A4%80/Gold/26260.%E2%80%85%EC%9D%B4%EA%B0%80%E2%80%85%EB%B9%A0%EC%A7%84%E2%80%85%EC%9D%B4%EC%A7%84%E2%80%85%ED%8A%B8%EB%A6%AC)
-     - 이진트리인데 pre, in 주어질떄 post 출력하라든가.
-     - 이진트리인데 post, in 주어질때 pre 출력하라든가. 
+     - 이진검색트리이고 입력값이 무작위일떄 후위순회를 출력하라든가 [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/90478d645e427fa6cab82e94d23ce756da09ccbc/%EB%B0%B1%EC%A4%80/Gold/26260.%E2%80%85%EC%9D%B4%EA%B0%80%E2%80%85%EB%B9%A0%EC%A7%84%E2%80%85%EC%9D%B4%EC%A7%84%E2%80%85%ED%8A%B8%EB%A6%AC)
+     - 이진트리인데 pre, in 주어질떄 post 출력하라든가 [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Gold/4256.%E2%80%85%ED%8A%B8%EB%A6%AC)
+     - 이진트리인데 post, in 주어질때 pre 출력하라든가 [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/184309b1530c790f17fa7d0f7f9435f85a191e43/%EB%B0%B1%EC%A4%80/Gold/2263.%E2%80%85%ED%8A%B8%EB%A6%AC%EC%9D%98%E2%80%85%EC%88%9C%ED%9A%8C)
      - 결국 트리의 성격에 따라, 주어진 순회의 특성에 따라 root를 찾고 이것을 기준으로 분할정복 식으로 재귀 돌리면 돼.
   - 트리 + DP 문제.
   - 트라이.
