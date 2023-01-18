@@ -79,7 +79,7 @@
      - 이진트리인데 pre, in 주어질떄 post 출력하라든가 [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Gold/4256.%E2%80%85%ED%8A%B8%EB%A6%AC)
      - 이진트리인데 post, in 주어질때 pre 출력하라든가 [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/184309b1530c790f17fa7d0f7f9435f85a191e43/%EB%B0%B1%EC%A4%80/Gold/2263.%E2%80%85%ED%8A%B8%EB%A6%AC%EC%9D%98%E2%80%85%EC%88%9C%ED%9A%8C)
      - 결국 트리의 성격에 따라, 주어진 순회의 특성에 따라 root를 찾고 이것을 기준으로 분할정복 식으로 재귀 돌리면 돼.
-  - 트리 + DP 문제.
+  - 트리 + DP 문제 [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/774914d0ef4f3019f68402e8dbd151313c81f06c/%EB%B0%B1%EC%A4%80/Gold/2533.%E2%80%85%EC%82%AC%ED%9A%8C%EB%A7%9D%E2%80%85%EC%84%9C%EB%B9%84%EC%8A%A4%EF%BC%88SNS%EF%BC%89)
   - 트라이.
   - 최소 공통 조상.
   
