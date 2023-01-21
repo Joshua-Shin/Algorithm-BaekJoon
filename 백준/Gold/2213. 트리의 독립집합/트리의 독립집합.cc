@@ -32,12 +32,8 @@ void go(int cur, bool isSelect) {
             go(nx, false);
     }
     else
-        for(auto nx: tree[cur]) {
-            if(cache[nx][0] < cache[nx][1] + arr[nx])
-                go(nx, true);
-            else 
-                go(nx, false);
-        }
+        for(auto nx: tree[cur])
+            go(nx, cache[nx][0] < cache[nx][1] + arr[nx]);
 }
 int main() {
     cin.tie(0)->sync_with_stdio(0);
