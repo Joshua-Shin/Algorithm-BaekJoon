@@ -178,7 +178,7 @@
 - 트라이
      - 문자열을 저장할 수 있는 트리 자료구조
      - 단순 문자열 삽입/삭제/조회 할때는 그냥 시간상 공간상 map 쓰는게 훨씬 이득
-     - 다만, 트라이를 써야만 풀리는 문제들이 있어. 자동완성기능처럼 접두사만 가지고 이래저래 해야 하는 문제들.
+     - 다만, 트라이를 써야만 풀리는 문제들이 있어. 자동완성기능처럼 접두사, 접미사를 가지고 이래저래 해야 하는 문제들.
      - [트라이 구현](https://github.com/Joshua-Shin/Algorithm-BaekJoon/blob/main/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EA%B5%AC%ED%98%84%ED%95%A8%EC%88%98/%ED%8A%B8%EB%9D%BC%EC%9D%B4.cpp)
      - [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Silver/14425.%E2%80%85%EB%AC%B8%EC%9E%90%EC%97%B4%E2%80%85%EC%A7%91%ED%95%A9)
      
