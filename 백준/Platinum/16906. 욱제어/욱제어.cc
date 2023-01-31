@@ -1,15 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 const int MX = 1000;
 int nxt[MX][2], root = 1, unused =2, n;
 bool chk[MX], success;
 vector<pair<int, int>> v;
-map<int, string> m, m2;
+map<int, string> m2;
+string successStr;
 int c2i(char c) {
     return c - '0';
 }
 void initiate() {
-    memset(nxt, -1, sizeof(nxt));
+    for(int i = 0; i<1000; i++) {
+        nxt[i][0] = -1;
+        nxt[i][1] = -1;
+    }
 }
 void insert(string &s) {
     int cur = root;
@@ -29,10 +34,6 @@ bool find(string &s) {
     }
     return chk[cur];
 }
-bool cmp(pair<int, int> a, pair<int, int> b) {
-    return a.second < b.second;
-}
-string successStr;
 void join(int len, string s) {
     if(success) return;
     if(s.size()==len) {
