@@ -2,11 +2,9 @@
 using namespace std;
 typedef long long ll;
 ll tc, n, temp;
-// 1,000,000 * 10,000 = 10^6 * 10^4 = 10^10
 int main() {
     cin.tie(0)->sync_with_stdio(0);
     cin >> tc;
-    vector<ll> answer;
     while(tc--) {
         cin >> n;
         priority_queue<ll, vector<ll>, greater<ll>> pq;
@@ -24,7 +22,6 @@ int main() {
             pq.push(sum);
             ans += sum;
         }
-        answer.push_back(ans);
+        cout << ans << '\n';
     }
-    for(auto x: answer) cout << x << '\n';
 }
