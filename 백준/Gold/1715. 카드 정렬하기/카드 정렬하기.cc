@@ -9,10 +9,6 @@ int main() {
         cin >> temp;
         pq.push(temp);
     }
-    if(n==1) {
-        cout << 0 << '\n';
-        return 0;
-    }
     int ans = 0;
     while(pq.size()!=1) {
         int a = pq.top();
