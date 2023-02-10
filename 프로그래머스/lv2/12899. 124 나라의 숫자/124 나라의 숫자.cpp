@@ -3,14 +3,13 @@ using namespace std;
 string solution(int n) {
     string answer = "";
     while(n) {
-        int temp = n % 3;
+        int remain = n % 3;
         n /= 3;
-        if(temp) answer = to_string(temp) + answer;
-        else {
-            answer = '4' + answer;
+        if(!remain) {
             n--;
+            answer = '4' + answer;
         }
-       
+        else answer = to_string(remain) + answer;
     }
     return answer;
 }
