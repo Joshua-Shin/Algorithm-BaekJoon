@@ -16,20 +16,21 @@ int main() {
     }
     sort(v.begin(), v.end(), cmp);
     priority_queue<int, vector<int>, greater<int>> pq;
-    int cur = 0;
-    for(int i = 1; i<=n && cur < v.size(); cur++) {
-        if(pq.empty() || v[cur].first >= i) {
-            pq.push(v[cur].second);
-            i++;
-        } else if(v[cur].second > pq.top()) {
+    int currentTime = 1;
+    for(int i = 0; i<v.size(); i++) {
+        if(currentTime <= v[i].first) {
+            pq.push(v[i].second);
+            currentTime++;
+        }
+        else if(pq.top() < v[i].second) {
             pq.pop();
-            pq.push(v[cur].second);
-        } 
+            pq.push(v[i].second);
+        }
     }
     int ans = 0;
     while(!pq.empty()) {
         ans += pq.top();
         pq.pop();
     }
-    cout << ans << '\n';
+    cout << ans;
 }
