@@ -1,3 +1,4 @@
+// https://www.algospot.com/judge/problem/read/JUMPGAME
 #include <bits/stdc++.h>
 using namespace std;
 int tc, n, board[101][101];
