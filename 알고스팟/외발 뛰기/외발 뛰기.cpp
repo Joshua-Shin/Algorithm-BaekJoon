@@ -1,4 +1,3 @@
-// https://www.algospot.com/judge/problem/read/JUMPGAME
 #include <bits/stdc++.h>
 using namespace std;
 int tc, n, board[101][101];
@@ -6,16 +5,10 @@ vector<string> ans;
 int cache[101][101];
 bool dp(int x, int y) {
     if (x == n - 1 && y == n - 1) return true;
+    if (x >= n || y >= n) return false;
     int &ret = cache[x][y];
     if (ret != -1) return ret;
-    int ny = y + board[x][y];
-    int nx = x + board[x][y];
-    bool result1 = false, result2 = false;
-    if (0 <= ny && ny < n)
-        result1 = dp(x, y + board[x][y]);
-    if (0 <= nx && nx < n)
-        result2 = dp(x + board[x][y], y);
-    return ret = result1 || result2;
+    return ret = dp(x, y + board[x][y]) || dp(x + board[x][y], y);
 }
 int main() {
     cin.tie(0)->sync_with_stdio(0);
