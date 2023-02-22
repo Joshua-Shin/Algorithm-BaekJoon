@@ -7,4 +7,3 @@ SELECT order_id, product_id, to_char(out_date, 'yyyy-mm-dd') as OUT_DATE,
     end as 출고여부
 from FOOD_ORDER
 order by order_id;
-        
