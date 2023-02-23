@@ -2,15 +2,16 @@
 using namespace std;
 vector<int> solution(vector<int> numbers) {
     vector<int> answer(numbers.size(), -1);
-    stack<pair<int, int>> st;
+    stack<int> st;
     for(int i = 0; i<numbers.size(); i++) {
         while(!st.empty()) {
-            auto [a, b] = st.top();
-            if(numbers[i] <= a) break;
-            answer[b] = numbers[i];
-            st.pop();
+            if(numbers[st.top()] < numbers[i]) {
+                answer[st.top()] = numbers[i];
+                st.pop();
+            }
+            else break;
         }
-        st.push({numbers[i], i});
+        st.push(i);
     }
     return answer;
 }
