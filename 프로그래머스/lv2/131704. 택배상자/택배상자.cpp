@@ -2,8 +2,6 @@
 using namespace std;
 
 int solution(vector<int> order) {
-    // vector<int> box(order.size());
-    // for(int i = 0; i<box.size() i++) box[i] = i + 1;
     stack <int> st;
     int cur = 0;
     for(int i = 1; i <= order.size(); i++) {
