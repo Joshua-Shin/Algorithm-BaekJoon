@@ -1,39 +1,40 @@
 #include <bits/stdc++.h>
 using namespace std;
-int lc[27]; // lc[x] = x 노드의 왼쪽 자식노드 값.
-int rc[27]; // rc[x] = x 노드의 오른쪽 자식 노드 값.
-void preOrder(int x) {
-    cout << char(x - 1 + 'A');
-    if(lc[x]) preOrder(lc[x]);
-    if(rc[x]) preOrder(rc[x]);
+int n;
+int lc[27], rc[27];
+string dic = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+int c2i(char c) {
+    return c - 'A' + 1;
 }
-void inOrder(int x) {
-    if(lc[x]) inOrder(lc[x]);
-    cout << char(x - 1 + 'A');
-    if(rc[x]) inOrder(rc[x]);
+void preOrder(int cur) {
+    cout << dic[cur - 1];
+    if(lc[cur]) preOrder(lc[cur]);
+    if(rc[cur]) preOrder(rc[cur]);
 }
-void postOrder(int x) {
-    if(lc[x]) postOrder(lc[x]);
-    if(rc[x]) postOrder(rc[x]);
-    cout << char(x - 1 + 'A');
+void inOrder(int cur) {
+    if(lc[cur]) inOrder(lc[cur]);
+    cout << dic[cur - 1];
+    if(rc[cur]) inOrder(rc[cur]);
+}
+void postOrder(int cur) {
+    if(lc[cur]) postOrder(lc[cur]);
+    if(rc[cur]) postOrder(rc[cur]);
+    cout << dic[cur - 1];
 }
 int main() {
-    cin.tie(0)->sync_with_stdio(0);
-    int n;
     cin >> n;
-    for (int i = 0; i < n; i++) {
+    for(int i = 0; i<n; i++) {
         char a, b, c;
         cin >> a >> b >> c;
-        if(b!='.') lc[a - 'A' + 1] = b - 'A' + 1;
-        if(c!='.') rc[a - 'A' + 1] = c - 'A' + 1;
-    }
-
+        if(b != '.') lc[c2i(a)] = c2i(b);
+        if(c != '.') rc[c2i(a)] = c2i(c);
+    }    
     preOrder(1);
     cout << '\n';
     inOrder(1);
     cout << '\n';
     postOrder(1);
     cout << '\n';
-
-    return 0;
 }
+
+
