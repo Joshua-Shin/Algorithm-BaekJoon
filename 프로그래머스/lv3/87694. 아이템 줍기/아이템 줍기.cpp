@@ -1,18 +1,45 @@
 #include <bits/stdc++.h>
 using namespace std;
-int board[101][101];
-int dist[101][101];
 int dx[] = {0, -1, 0, 1};
 int dy[] = {1, 0, -1, 0};
-int bfs(int x, int y, int ix, int iy) {
+int board[110][110];
+int dist[110][110];
+int solution(vector<vector<int>> r, int x, int y, int itemX, int itemY) {
+    for(int i = 0; i < r.size(); i++) {
+        for(int j = 0; j < r[0].size(); j++) {
+            r[i][j] *= 2;
+        }
+    }
+    x *= 2; y *= 2; itemX *= 2; itemY *= 2;
+    for(int i = 0; i< r.size(); i++) {
+        int x1, y1, x2, y2;
+        x1 = r[i][0]; y1 = r[i][1];
+        x2 = r[i][2]; y2 = r[i][3];
+        for(int x = x1; x <= x2; x++) {
+            for(int y = y1; y <= y2; y++) {
+                board[x][y] = 1;
+            }
+        }
+    }
+    for(int i = 0; i< r.size(); i++) {
+        int x1, y1, x2, y2;
+        x1 = r[i][0]; y1 = r[i][1];
+        x2 = r[i][2]; y2 = r[i][3];
+        for(int x = x1 + 1; x <= x2 - 1; x++) {
+            for(int y = y1 + 1; y <= y2 -1; y++) {
+                board[x][y] = 0;
+            }
+        }
+    }
+    memset(dist, -1, sizeof(dist));
     queue<pair<int, int>> q;
     dist[x][y] = 0;
     q.push({x, y});
     while(!q.empty()) {
         tie(x, y) = q.front();
-        if(x == ix && y == iy) return dist[x][y] / 2;
+        if(x == itemX && y == itemY) return dist[x][y] / 2;
         q.pop();
-        for(int k = 0; k < 4; k++) {
+        for(int k = 0; k< 4; k++) {
             int nx = x + dx[k];
             int ny = y + dy[k];
             if(!board[nx][ny]) continue;
@@ -24,23 +51,26 @@ int bfs(int x, int y, int ix, int iy) {
     return 0;
 }
 
-int solution(vector<vector<int>> r, int cx, int cy, int ix, int iy) {
-    cx *= 2; cy *= 2; ix *= 2; iy *= 2;
-    for (int i = 0; i < r.size(); i++)
-        for (int j = 0; j < r[0].size(); j++) 
-            r[i][j] *= 2;
-    for(auto v: r) {
-        int x1 = v[0]; int y1 = v[1]; int x2 = v[2]; int y2 = v[3];
-        for(int i = x1; i <= x2; i++)
-            for(int j = y1; j <= y2; j++) 
-                board[i][j] = 1;
-    }
-    for(auto v: r) {
-        int x1 = v[0]; int y1 = v[1]; int x2 = v[2]; int y2 = v[3];
-        for(int i = x1 + 1; i <= x2 - 1; i++)
-            for(int j = y1 + 1; j <= y2 - 1; j++) 
-                board[i][j] = 0;
-    }
-    memset(dist, -1, sizeof(dist));
-    return bfs(cx, cy, ix, iy);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
