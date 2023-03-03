@@ -9,12 +9,6 @@ int dfs(int cur, vector<int> &cards) {
     int nCur = cards[cur] - 1;
     return dfs(nCur, cards) + 1;
 }
-int dfs2(int cur, vector<int> &cards) {
-    if(check2[cur]) return 0;
-    check2[cur] = true;
-    int nCur = cards[cur] - 1;
-    return dfs2(nCur, cards) + 1;
-}
 int solution(vector<int> cards) {
     n = cards.size();
     int answer = 0;
@@ -25,8 +19,7 @@ int solution(vector<int> cards) {
         for(int j = 0; j < n; j++) { // 두번째 선택 인덱스
             if(i == j) continue;
             if(check[j]) continue;
-            for(int k = 0; k<105; k++) check2[k] = check[k];
-            result2 = max(result2, dfs2(j, cards));
+            result2 = max(result2, dfs(j, cards));
         }
         answer = max(answer, result1 * result2);
     }
