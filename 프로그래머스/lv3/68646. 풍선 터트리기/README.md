@@ -1,10 +1,10 @@
 # [level 3] 풍선 터트리기 - 68646 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/68646#qna) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/68646) 
 
 ### 성능 요약
 
-메모리: 46.3 MB, 시간: 11.03 ms
+메모리: 46.2 MB, 시간: 11.12 ms
 
 ### 구분
 
