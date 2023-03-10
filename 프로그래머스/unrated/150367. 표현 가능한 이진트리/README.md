@@ -1,10 +1,10 @@
 # [unrated] 표현 가능한 이진트리 - 150367 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/150367#qna) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/150367?language=cpp) 
 
 ### 성능 요약
 
-메모리: 4.79 MB, 시간: 28.14 ms
+메모리: 4.86 MB, 시간: 17.76 ms
 
 ### 구분
 
