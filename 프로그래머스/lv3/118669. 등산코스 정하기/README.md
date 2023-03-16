@@ -1,10 +1,10 @@
 # [level 3] 등산코스 정하기 - 118669 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/118669#qna) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/118669?language=cpp) 
 
 ### 성능 요약
 
-메모리: 53.5 MB, 시간: 65.83 ms
+메모리: 53.3 MB, 시간: 64.28 ms
 
 ### 구분
 

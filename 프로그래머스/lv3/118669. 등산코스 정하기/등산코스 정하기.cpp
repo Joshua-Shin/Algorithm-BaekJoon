@@ -1,53 +1,44 @@
 #include <bits/stdc++.h>
-#define MAX 50001
 using namespace std;
-vector<int> res; // 산봉우리 번호, intensity
-vector<pair<int, int>> adj[MAX];
-int intensity[MAX]; //  출입구 A에서 출발하여 i번 지점까지 올 때 가능한 최소 intensity(=등산로들의 가중치 중 최댓값)
-bool isSummit[MAX];
-void go(vector<int>& gates) {
+vector<pair<int, int>> adj[50001];
+bool isSummit[50001];
+int n;
+vector<int> go(vector<int> & gates) {
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
-    vector<pair<int, int>> temp;
-    memset(intensity, -1, sizeof(intensity));
-    for(auto g : gates) {
+    vector<int> intensity(n+1, 2e9);
+    vector<pair<int, int>> v;
+    for(auto g: gates) {
         pq.push({0, g});
         intensity[g] = 0;
     }
     while(!pq.empty()) {
-        int cost = pq.top().first; // 여기에서 cost는 지금까지 이동해온 최소 경로중 가장 큰 가중치.
-        int nowV = pq.top().second;
+        int cost = pq.top().first;
+        int x = pq.top().second;
         pq.pop();
-        
-        // if(cost > intensity[nowV]) continue;
-        
-        // 아, 산봉우리에 도착한 순간을 이제 temp에 넣는거네.
-        if(isSummit[nowV]) {
-            temp.push_back({cost, nowV});
+
+        if(isSummit[x]) {
+            v.push_back({cost, x});
             continue;
         }
-        
-        for(auto p : adj[nowV]) {
-            int weight = p.first;
-            int to = p.second;
-            
-            if(intensity[to] == -1 || max(cost, weight) < intensity[to]) {
-                intensity[to] = max(cost, weight);
-                pq.push({intensity[to], to});
-            }
+
+        if(cost > intensity[x]) continue;
+        for(auto e: adj[x]) {
+            int nx = e.first;
+            int nCost = max(cost, e.second);
+            if(intensity[nx] <= nCost) continue;
+            intensity[nx] = nCost;
+            pq.push({intensity[nx], nx});
         }
     }
-    
-    sort(temp.begin(), temp.end());
-    res.push_back(temp[0].second);
-    res.push_back(temp[0].first);
+    sort(v.begin(), v.end());
+    return {v[0].second, v[0].first};
 }
-
 vector<int> solution(int n, vector<vector<int>> paths, vector<int> gates, vector<int> summits) {
-    for (auto e : paths) {
-        adj[e[0]].push_back({e[2], e[1]});
-        adj[e[1]].push_back({e[2], e[0]});
+    for(auto p: paths) {
+        adj[p[0]].push_back({p[1], p[2]});
+        adj[p[1]].push_back({p[0], p[2]});
     }
-    for(auto s : summits) isSummit[s] = true;
-    go(gates);
-    return res;
+    for(auto s: summits) isSummit[s] = true;
+    ::n = n;
+    return go(gates);
 }
