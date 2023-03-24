@@ -1,32 +1,30 @@
 #include <bits/stdc++.h>
 using namespace std;
-int d[200][200];
 int solution(int alp, int cop, vector<vector<int>> problems) {
-    int maxAlp = 0, maxCop = 0;
-    for(auto pro: problems) {
-        maxAlp = max(maxAlp, pro[0]);
-        maxCop = max(maxCop, pro[1]);
+    int ma = 0, mc = 0;
+    for(auto p: problems) {
+        ma = max(ma, p[0]);
+        mc = max(mc, p[1]);
     }
-    if(alp >= maxAlp && cop >= maxCop) return 0;
-    for(int i = 0; i <= maxAlp; i++) {
-        for(int j = 0; j <= maxCop; j++) {
+    if(alp >= ma && cop >= mc) return 0;
+    alp = min(alp, ma);
+    cop = min(cop, mc);
+    int d[ma+1][mc+1];
+    for(int i = 0; i <= ma; i++) {
+        for(int j = 0; j <= mc; j++) {
             d[i][j] = 1e9;
         }
     }
-    alp = min(alp, maxAlp);
-    cop = min(cop, maxCop);
     d[alp][cop] = 0;
-
-    for(int i = alp; i <= maxAlp; i++) {
-        for(int j = cop; j <= maxCop; j++) {
-            d[i][j + 1] = min(d[i][j + 1], d[i][j] + 1);
-            d[i+1][j] = min(d[i+1][j], d[i][j] + 1);
-            for(int k = 0; k < problems.size(); k++) {
-                if(problems[k][0] > i || problems[k][1] > j) continue;
-                d[min(i + problems[k][2], maxAlp)][min(j + problems[k][3], maxCop)] 
-                    = min(d[min(i + problems[k][2], maxAlp)][min(j + problems[k][3], maxCop)], d[i][j] + problems[k][4]);
+    for(int i = alp; i <= ma; i++) {
+        for(int j = cop; j <= mc; j++) {
+            if(i+1 <= ma) d[i+1][j] = min(d[i+1][j], d[i][j] + 1);
+            if(j+1 <= mc) d[i][j+1] = min(d[i][j+1], d[i][j] + 1);
+            for(auto p: problems) {
+                if(i < p[0] || j < p[1]) continue;
+                d[min(i+p[2], ma)][min(j+p[3], mc)] = min(d[min(i+p[2], ma)][min(j+p[3], mc)], d[i][j] + p[4]);
             }
         }
     }
-    return d[maxAlp][maxCop];
+    return d[ma][mc];
 }
