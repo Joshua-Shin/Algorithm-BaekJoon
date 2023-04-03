@@ -82,6 +82,14 @@
 
 -------
 ### STL
+- string의 find 메소드의 반환값
+	- str.find("aaa") 을 하면 str 문자열에서 가장 앞에 있는 패턴문자열의 위치를 반환함.
+	- 반환 타입이 idx가 아니긴 한데, int idx = str.find("aaa"); 라고 해주면 int 형으로 잘 바꿔서 반환해줌
+	- 만약 패턴을 못찾았을 경우에는 idx에 -1이 들어감.
+	- int로 변환하지 않으면 string::npos 라는 값으로 나오는데 이걸 print하면 아주 엄청난 수가 나옴. 
+	- string::npos랑 -1은 분명 다른 수로 출력되는데 if(string::npos == -1) 이라고 하면 true 반환.
+	- 연산 과정에서 int로 바꿔주는듯.
+
 - priority_queue
     - 가장 큰 값이 top()으로 반환됨
     - vs Set
