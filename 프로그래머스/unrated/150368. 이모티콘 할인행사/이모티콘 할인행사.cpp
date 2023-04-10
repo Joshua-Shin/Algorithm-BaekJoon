@@ -1,47 +1,56 @@
 #include <bits/stdc++.h>
 using namespace std;
-vector<int> sales = {10, 20, 30, 40};
-vector<vector<int>> users;
-vector<int> emoticons;
-int maxCostSum, maxCnt;
-void dfs(vector<pair<int, int>> arr) { // 원가, 할인율
-    if(arr.size() == emoticons.size()) {
-        int costSum = 0;
+// 1. 가입자 최대한, 2. 판매액 최대한.
+int discount[] = {10, 20, 30, 40};
+vector<vector<int>> sel;
+void go(int cur, int n, vector<int> v) {
+    if(cur == n) {
+        sel.push_back(v);
+        return;
+    }
+    for(int i = 0; i < 4; i++) {
+        v.push_back(discount[i]);
+        go(cur + 1, n, v);
+        v.pop_back();
+    }
+}
+
+vector<int> solution(vector<vector<int>> users, vector<int> emoticons) {
+    // vector<int> sel;
+    // for(int k = 0; k < 4; k++) {
+    //     for(int i = 0; i < emoticons.size(); i++) {
+    //         sel.push_back(discount[k]);
+    //     }
+    // }
+    // map<string, int> m;
+    go(0, emoticons.size(), {});
+    int maxCnt = -1;
+    int maxCost = -1;
+    
+    for(int k = 0; k < sel.size(); k++) {
         int cnt = 0;
-        for(int i = 0; i<users.size(); i++) {
-            int cost = 0;
-            for(int j = 0; j < arr.size(); j++) {
-                if(arr[j].second < users[i][0]) continue;
-                cost += ((arr[j].first / 100) * (100 - arr[j].second));
-                if(cost >= users[i][1]) {
-                    cost = 0;
-                    cnt++;
+        int cost = 0;
+        for(int i = 0; i < users.size(); i++) {
+            int sum = 0;
+            for(int j = 0; j < emoticons.size(); j++) {
+                if(users[i][0] > sel[k][j]) continue;
+                sum += (emoticons[j] * (100 - sel[k][j]) / 100);
+                if(sum >= users[i][1]) {
                     break;
                 }
             }
-            costSum += cost;
+            if(sum >= users[i][1]) {
+                cnt++;
+            } else {
+                cost += sum;
+            }
         }
         if(maxCnt < cnt) {
             maxCnt = cnt;
-            maxCostSum = costSum;
-        } else if(maxCnt == cnt && maxCostSum < costSum) {
-            maxCostSum = costSum;
+            maxCost = cost;
+        } else if(maxCnt == cnt) {
+            maxCost = max(maxCost, cost);
         }
-        return;
     }
-    int cur = arr.size();
-    for(int j = 0; j < 4; j++) {
-        arr.push_back({emoticons[cur], sales[j]});
-        dfs(arr);
-        arr.pop_back();
-    }
-    return;
-}
-vector<int> solution(vector<vector<int>> users, vector<int> emoticons) {
-    vector<int> answer;
-    vector<pair<int, int>> arr; // 원가, 할인율
-    ::users = users;
-    ::emoticons = emoticons;
-    dfs(arr);
-    return {maxCnt, maxCostSum};
+    return {maxCnt, maxCost};
 }
