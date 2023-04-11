@@ -1,33 +1,58 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-ll solution(int cap, int n, vector<int> del, vector<int> pick) {
+long long solution(int cap, int n, vector<int> deliveries, vector<int> pickups) {
     ll answer = 0;
-    stack<int> d, p;
-    for(auto e: del) d.push(e);
-    for(auto e: pick) p.push(e);
-    while(!d.empty() && d.top()==0) d.pop();
-    while(!p.empty() && p.top()==0) p.pop();
-    while(!(d.empty() && p.empty())) {
-        answer += max(d.size(), p.size()) * 2;
-        int box = 0;
-        while(!d.empty() && box <= cap) {
-            if(box + d.top() <= cap) {
-                box += d.top();
-                d.pop();
-            } else {
-                d.top() -= (cap - box);
+    int cur1 = deliveries.size()-1;
+    int cur2 = pickups.size()-1;
+    while(1) {
+        if(cur1 >= 0 && deliveries[cur1] == 0) cur1--;
+        else break;
+    }
+    while(1) {
+        if(cur2 >= 0 && pickups[cur2] == 0) cur2--;
+        else break;
+    }
+    while(1) {
+        if(cur1 == -1 && cur2 == -1) break;
+        answer += (ll)(max(cur1, cur2) + 1) * 2;
+        int box = cap;
+        for( ; cur1 >= 0; cur1--) {
+            if(deliveries[cur1]==0) continue;
+
+            if(deliveries[cur1] > box) {
+                deliveries[cur1] -= box;
                 break;
-            } 
+            } else if(deliveries[cur1] == box) {
+                deliveries[cur1] = 0;
+                cur1--;
+                while(1) {
+                    if(cur1 >= 0 && deliveries[cur1] == 0) cur1--;
+                    else break;
+                }
+                break;
+            } else { // deliveries[cur1] < box
+                box -= deliveries[cur1];
+                deliveries[cur1] = 0;
+            }
         }
-        box = 0;
-        while(!p.empty() && box <= cap) {
-            if(box + p.top() <= cap) {
-                box += p.top();
-                p.pop();
-            } else {
-                p.top() -= (cap - box);
+        box = cap;
+        for( ; cur2 >= 0; cur2--) {
+            if(pickups[cur2]==0) continue;
+            if(pickups[cur2] > box) {
+                pickups[cur2] -= box;
                 break;
+            } else if(pickups[cur2] == box) {
+                pickups[cur2] = 0;
+                cur2--;
+                while(1) {
+                    if(cur2 >= 0 && pickups[cur2] == 0) cur2--;
+                    else break;
+                }
+                break;
+            } else {
+                box -= pickups[cur2];
+                pickups[cur2] = 0;
             }
         }
     }
