@@ -29,15 +29,23 @@ bool isMatch2(int x, int y, vector<vector<int>> &key, vector<vector<int>> lock) 
     return true;
 }
 bool isMatch(vector<vector<int>> &key, vector<vector<int>> &lock) {
-    int st = -((int)key.size()-1);
-    int en = lock.size();
-    // cout << st << ' ' << en << '\n';
-    for(int i = st; i < en; i++) { // 이게 왜 실행이 안돼???!?!?!?!?
-        for(int j = st; j < en; j++) {
+    // int st = -(key.size()-1);
+    // cout << st << ' ' << lock.size() << '\n';
+    for(int i = -(key.size()-1); i < (int)lock.size(); i++) { // 이게 왜 실행이 안돼???!?!?!?!?
+        for(int j = -(key.size()-1); j < (int)lock[0].size(); j++) {
             if(isMatch2(i, j, key, lock)) return true;
         }
     }
     return false;
+    // int st = -((int)key.size()-1);
+    // int en = lock.size();
+    // // cout << st << ' ' << en << '\n';
+    // for(int i = st; i < en; i++) { // 이게 왜 실행이 안돼???!?!?!?!?
+    //     for(int j = st; j < en; j++) {
+    //         if(isMatch2(i, j, key, lock)) return true;
+    //     }
+    // }
+    // return false;
 }
 bool solution(vector<vector<int>> key, vector<vector<int>> lock) {
     for(int k = 0; k < 4; k++) {
