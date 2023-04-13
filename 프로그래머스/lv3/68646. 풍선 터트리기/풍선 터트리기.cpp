@@ -1,18 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 int solution(vector<int> a) {
-    int answer = 0;
-    int n = a.size();
-    int lMin[n], rMin[n];
-    lMin[0] = a[0]; rMin[n-1] = a[n-1];
-    for(int i = 1; i < n; i++) lMin[i] = min(lMin[i-1], a[i]);
-    for(int i = n-2; i >= 0; i--) rMin[i] = min(rMin[i+1], a[i]);
-    for(int i = 0; i < n; i++) {
-        if(i == 0 || i == n - 1) {
-            answer++;
-            continue;
+    int answer = 1;
+    // 가장 작은 수를 기준으로 오른쪽 왼쪽을 나눠.
+    // 오른쪽에서 한칸씩 가면서, 남아있는 중 가장 작은 수...
+    int minValue = 2e9;
+    int minIdx;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] < minValue) {
+            minValue = a[i];
+            minIdx = i;
         }
-        if(a[i] < lMin[i-1] || a[i] < rMin[i+1]) answer++;
+    }
+    priority_queue<int, vector<int>, greater<int>> pq;
+    for(int i = a.size()-1; i !=minIdx; i--) {
+        pq.push(a[i]);
+        if(pq.top() == a[i]) answer++;
+    }
+    priority_queue<int, vector<int>, greater<int>> pq2;
+    for(int i = 0; i !=minIdx; i++) {
+        pq2.push(a[i]);
+        if(pq2.top() == a[i]) answer++;
     }
     return answer;
 }
