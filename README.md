@@ -86,8 +86,8 @@
 	- for(int i = 0; i < v.size()-1; i++)
 		- v.size() 가 0일 경우 v.size()-1이 -1이 되어 for문이 실행 안되는게 아니라, 엄청큰 양수가 되어서 for문 많이 실행됨.
 	- for(int i = -2; i < v.size(); i++)
-		- v.size()와 i가 비교 연산 할때 i가 unsigned int로 형변환되기에 음수인 i가 이상한 결과 나옴
-	- 결론: (int)v.size() 사용하자.
+		- v.size()와 i가 비교 연산 할때 i가 unsigned int로 형변환되면서 엄청 큰 수가 되고 v.size()보다 웬만하면 큰값이기에 for문 실행 안됨.
+	- 결론: v.size()-n가 음수가 될것 같거나, i가 음수부터 시작된다거나 하는 상황에서는 (int)v.size() 사용하자.
 - 1e9, 2e9 이게 사실 double형임!
 	- int num = 1e9; 는 소수점 날리고, int형으로 자동 형변환되어 들어가지만,
 	- int num[2] = {1e9, 1e9}; 이건 불가. 따로 casting 해줘야함
