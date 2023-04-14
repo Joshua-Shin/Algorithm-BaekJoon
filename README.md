@@ -81,6 +81,10 @@
 
 -------
 ### STL
+- 이분탐색
+	- lower_bound(v.begin(), v.end(), value); : v배열에서 value보다 크거나 같은 수 중 가장 첫번째 수의 반복자 반환
+	- upper_bound(v.begin(), v.end(), value); : v배열에서 value보다 큰 수 중 가장 첫번째 수의 반복자 반환
+	- binary_search(v.begin(), v.end(), value); : v배열에 value가 있나 없나 bool 반환
 - v.size() 의 타입은 unsigned int 임
 	- 또한 int 타입의 피연산자와 연산을 할 경우, 해당 피연산자가 unsigned int로 형변환됨.
 	- for(int i = 0; i < v.size()-1; i++)
