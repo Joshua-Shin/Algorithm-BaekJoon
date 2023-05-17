@@ -153,14 +153,17 @@
 ---------
 ### 알고리즘별 요약 및 풀이 전략
 - 수학
-  -	나머지 연산
+	- 나머지 연산
 		- (A+B) % M == ((A%M)+(B%M))%M
-		- (A*B) % M == ((A%M)*(B%M))%M
+		- (A\*B) % M == ((A%M)*(B%M))%M
 		- (A-B) % M == ((A%M)-(B%M)+M)%M // 음수 나올 수 있기에 M을 더해주고 다시 나머지연산
 	- 최대공약수(유클리드호제법) 인데, 내장 함수로 gcd, lcm 있음.
-		- int gcd(int a, int b) {
-    - if(b == 0) return a;
-    - return gcd(b, a%b); }
+		```
+		int gcd(int a, int b) {
+			if(b == 0) return a;
+			return gcd(b, a%b); 
+		}
+		```
 	- 최소공배수
 		- LCM(a,b) == a*b / GCD(a,b)
 	- 소수
