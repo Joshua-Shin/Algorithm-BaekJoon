@@ -1,21 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
+int n, m;
 int main() {
     cin.tie(0)->sync_with_stdio(0);
-    map<string, int> s;
-    int n, m;
     cin >> n >> m;
+    map<string, int> strMap;
     for (int i = 0; i < n; i++) {
-        string temp;
-        cin >> temp;
-        s[temp]++;
+        string s;
+        cin >> s;
+        strMap[s]++;
     }
-    int cnt = 0;
-    for (int j = 0; j < m; j++) {
-        string temp;
-        cin >> temp;
-        if(s[temp]) cnt++;
+    int answer = 0;
+    for(int i = 0; i < m; i++) {
+        string s;
+        cin >> s;
+        if(strMap.find(s) != strMap.end()) answer++;
     }
-    cout << cnt << '\n';
-    return 0;
+    cout << answer;
+    
 }
