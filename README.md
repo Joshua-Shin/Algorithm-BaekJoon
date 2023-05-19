@@ -353,7 +353,9 @@
      - 다만, 트라이를 써야만 풀리는 문제들이 있어. 자동완성기능처럼 접두사, 접미사를 가지고 이래저래 해야 하는 문제들.
      - [트라이 구현](https://github.com/Joshua-Shin/Algorithm-BaekJoon/blob/main/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EA%B5%AC%ED%98%84%ED%95%A8%EC%88%98/%ED%8A%B8%EB%9D%BC%EC%9D%B4.cpp)
      - [모범 예제](https://github.com/Joshua-Shin/Algorithm-BaekJoon/tree/main/%EB%B0%B1%EC%A4%80/Silver/14425.%E2%80%85%EB%AC%B8%EC%9E%90%EC%97%B4%E2%80%85%EC%A7%91%ED%95%A9)
-     
+     - 이 이미지가 머리에 들어가 있어야 돼. 조금이라도 아리까리하면 강의 들어. 12분만 들으면 됨. https://youtu.be/ZmLe4tc5XRI <br> <img width="800" alt="스크린샷 2023-05-19 오후 9 10 29" src="https://github.com/Joshua-Shin/Algorithm-BaekJoon/assets/93418349/a3113dfa-c614-4bd1-be0e-214d2efcdee2">
+
+	
 -----------------------------
 ### 유명 문제별 풀이전략
 - LCS
