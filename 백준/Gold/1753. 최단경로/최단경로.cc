@@ -1,53 +1,38 @@
-#include <iostream>
-#include <vector>
-#include <queue>
+#include <bits/stdc++.h>
 using namespace std;
 int n, m;
-vector <pair<int, int> > adj[20001]; // 정점, 가중치
-vector<int> dijkstra(int start)
-{
-    priority_queue <pair<int, int>> pq; // -비용 정점
-    vector <int> dist(n+1, 2e9); // 이걸 전역변수로 선언할 수 없는게, n 때문에 그럼. n의 값이 main 함수에서 입력을 받아서 수가 생기는건데, 입력을 받기전에 전역으로 초기화를 해버리면 n 값이 0일때 초기화가 되는거잖아.
-    dist[start] = 0;
-    pq.push({0, start});
-    while(!pq.empty())
-    {
-        int x = pq.top().second;
-        int xCost = -pq.top().first;
-        pq.pop(); // 다익스트라에서는 여기에서 방문이 이루어진다고 봐야하는게 맞는듯.
-        if(xCost > dist[x]) continue; 
-        for(int i =0; i<adj[x].size(); i++)
-        {
-            int nx = adj[x][i].first;
-            int nxCost = xCost + adj[x][i].second;
-            if(nxCost < dist[nx])
-            {
-                dist[nx] = nxCost;
-                pq.push({-nxCost, nx});
-            }
+vector<pair<int, int>> adj[20001];
+vector<int> solve(int st) {
+    vector<int> dist(n + 1, INT_MAX);
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+    dist[st] = 0;
+    pq.push({dist[st], st});
+    while(!pq.empty()) {
+        auto [cost, x] = pq.top();
+        pq.pop();
+        if(dist[x] != cost) continue;
+        for(auto &e: adj[x]) {
+            int nx = e.first;
+            int nCost = cost + e.second;
+            if(nCost >= dist[nx]) continue;
+            dist[nx] = nCost;
+            pq.push({dist[nx], nx});
         }
     }
     return dist;
 }
-
-int main()
-{
-    cin >> n >> m;
+int main() {
+    cin.tie(0)->sync_with_stdio(0);
     int start;
-    cin >> start;
-    for(int i =0; i<m; i++)
-    {
-        int from, to, w;
-        cin >> from >> to >> w;
-        adj[from].push_back({to, w});
+    cin >> n >> m >> start;
+    for(int i = 0; i < m; i++) {
+        int a, b, c;
+        cin >> a >> b >> c;
+        adj[a].push_back({b, c});
     }
-    vector<int> dist = dijkstra(start);
-    for(int i =1; i<n+1; i++)
-    {
-        if(dist[i]!=2e9)
-            cout << dist[i] << '\n';
-        else
-            cout << "INF" << '\n';
+    auto ans = solve(start);
+    for(int i = 1; i < ans.size(); i++) {
+        if(ans[i] == INT_MAX) cout << "INF" << '\n';
+        else cout << ans[i] << '\n';
     }
-    return 0;
 }
